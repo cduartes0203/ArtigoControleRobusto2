@@ -10,6 +10,9 @@ class DriveTrain:
         self.Kdt = params['Kdt']
         self.Jr = params['Jr']
         self.Jg = params['Jg']
+        self.Bg = params['Bg']
+        self.Ng = params['Ng']
+        self.Ndt = params['Ndt']
         self.lmbd_opt = params['Lambda_opt']
         self.Cp_star = params['Cp_Max']
         self.U = np.array([0,0])
@@ -51,11 +54,13 @@ class DriveTrain:
 
     def dynamics(self, t, X, U):
 
-
         Bdt = self.Bdt 
         Kdt = self.Kdt 
         Jr = self.Jr 
         Jg = self.Jg 
+        Bg = self.Bg
+        Ng = self.Ng
+        Ndt = self.Ndt
         tg = self.tg
         xi = self.xi
         Wn = self.Wn
@@ -64,7 +69,10 @@ class DriveTrain:
         A11 = (-1/tg)*one
         A54 = -(Wn**2)*one 
         A55 = -2*xi*Wn
-        
+        a71 = -(1/Jg) * one 
+        a77 = -((Ndt*Bdt/(Jg*(Ng**2))) + (Bg/Jg))
+        a84 = 
+        a88 = 
         A0=np.array([[A11,    0,   0,           0,           0,           0],
                      [  0,    0,  one,           0,           0,           0],
                      [  0,  A54, A55,           0,           0,           0],
