@@ -22,6 +22,7 @@ class DriveTrain:
         self.EG = np.array([0])
 
         self.Tg_r = None
+        self.Tg_r2 = None
         self.B_r = None
         self.tg = None
         self.xi = None
