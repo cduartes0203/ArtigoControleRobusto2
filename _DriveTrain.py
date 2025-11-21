@@ -12,7 +12,7 @@ def Cp_calc(lmbd_in=0):
 class DriveTrain:
     def __init__(self, **params):
 
-        self.RHO = params['rho'] 
+        self.rho = params['rho'] 
         self.A = params['Ar'] 
         self.R = params['Rr'] 
         self.Bdt = params['Bdt']
@@ -32,6 +32,8 @@ class DriveTrain:
         self.X_ = np.array([[0,0,0]])
         self.dX_ = np.array([[0,0,0]])
         self.k = 1
+        self.tR = np.array([])
+        self.tG = np.array([])
         self.cp_=[]
         self.lmbd_=[]
 
@@ -94,6 +96,8 @@ class DriveTrain:
         tR = 0.5*rho*A*Cp*(v**3)/wr
         tG = K_mppt*(wg**2)
         du = np.array([tR,tG])
+        self.tR = np.append(self.tR,tR)
+        self.tG = np.append(self.tG,tG)
         self.U = du
         self.K_mppt = np.append(self.K_mppt,K_mppt)
         
@@ -144,7 +148,7 @@ class DriveTrain:
         self.k = self.k + 1
 
     def all_plots(self):
-        PG, PD, EG, ED, K_mppt, wr, wg, ot, dwr, dwg, dot= [
+        PG, PD, EG, ED, K_mppt, wr, wg, ot, dwr, dwg, dot, tR, tG= [
             {
                 'y_arrays': [self.PG],
                 'x_arrays': None,
@@ -233,8 +237,24 @@ class DriveTrain:
                 'yname': r'$\dot{\theta}_{ts}$ (rad)',
                 'legend_labels': None
             },
+        {
+            'y_arrays': [self.tR],
+            'x_arrays': None,
+            'title': r'$\dot{\tau}_{r}$ consecutively',
+            'xname': None,
+            'yname': r'$\dot{\tau}_{r}$ (rad)',
+            'legend_labels': None
+        },
+        {
+            'y_arrays': [self.tG],
+            'x_arrays': None,
+            'title': r'$\dot{\tau}_{g}$ consecutively',
+            'xname': None,
+            'yname': r'$\dot{\tau}_{g}$ (rad)',
+            'legend_labels': None
+        },
             ]
         
-        return EG, PG, ED, PD, K_mppt, wr, wg, ot, dwr, dwg, dot
+        return EG, PG, ED, PD, K_mppt, wr, wg, ot, dwr, dwg, dot, tR, tG
 
     

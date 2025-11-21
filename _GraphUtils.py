@@ -360,7 +360,7 @@ def AllPlots(dTrain,dTrain2):
             'title': 'Generated Power',
             'xname': 'Sample',
             'yname': r'$P_{G}\ (W)$',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.PD,dTrain2.PD],
@@ -368,7 +368,7 @@ def AllPlots(dTrain,dTrain2):
             'title': 'Dissipated Power',
             'xname': None,
             'yname': r'$P_{D}\ (W)$',
-            'legend_labels':['w/o RUL Control','w/ RUL Control']
+            'legend_labels':['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.EG,dTrain2.EG],
@@ -376,7 +376,7 @@ def AllPlots(dTrain,dTrain2):
             'title': 'Cumulative Generated Energy',
             'xname': None,
             'yname': r'$E_{G}\ (Ws)$',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.ED,dTrain2.ED],
@@ -384,7 +384,7 @@ def AllPlots(dTrain,dTrain2):
             'title': 'Cumulative Dissipated Energy',
             'xname': None,
             'yname': r'$E_{D}\ (Ws)$',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.K_mppt[1:],dTrain2.K_mppt[1:]],
@@ -392,7 +392,7 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$K_{mppt}$ gain consecutively',
             'xname': None,
             'yname': r'$K_{mppt}$ gain',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.X_[:,0],dTrain2.X_[:,0]],
@@ -400,7 +400,7 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$\omega_{r}$ consecutively',
             'xname': None,
             'yname': r'$\omega_{r}$ (rad/s)',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.X_[:,1],dTrain2.X_[:,1]],
@@ -408,7 +408,7 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$\omega_{g}$ consecutively',
             'xname': None,
             'yname': r'$\omega_{g}$ (rad/s)',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/o RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.X_[:,2],dTrain2.X_[:,2]],
@@ -416,7 +416,7 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$\theta_{ts}$ consecutively',
             'xname': None,
             'yname': r'$\theta_{ts}$ (rad)',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.dX_[:,0],dTrain2.dX_[:,0]],
@@ -424,7 +424,7 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$\dot{\omega}_{r}$ consecutively',
             'xname': None,
             'yname': r'$\dot{\omega}_{r}$ (rad/s)',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.dX_[:,1],dTrain2.dX_[:,1]],
@@ -432,7 +432,7 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$\dot{\omega}_{g}$ consecutively',
             'xname': None,
             'yname': r'$\dot{\omega}_{g}$ (rad/s)',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         {
             'y_arrays': [dTrain.dX_[:,2],dTrain2.dX_[:,2]],
@@ -440,7 +440,23 @@ def AllPlots(dTrain,dTrain2):
             'title': r'$\dot{\theta}_{ts}$ consecutively',
             'xname': None,
             'yname': r'$\dot{\theta}_{ts}$ (rad)',
-            'legend_labels': ['w/o RUL Control','w/ RUL Control']
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
+        },
+        {
+            'y_arrays': [dTrain.tR,dTrain2.tR],
+            'x_arrays': None,
+            'title': r'${\tau}_{r}$ consecutively',
+            'xname': None,
+            'yname': r'${\tau}_{r}$ (N.m)',
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
+        },
+        {
+            'y_arrays': [dTrain.tG,dTrain2.tG],
+            'x_arrays': None,
+            'title': r'${\tau}_{g}$ consecutively',
+            'xname': None,
+            'yname': r'${\tau}_{g}$ (N.m)',
+            'legend_labels': ['w/ RUL Control','w/o RUL Control']
         },
         ]
     
