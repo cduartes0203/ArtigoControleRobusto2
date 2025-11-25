@@ -2,11 +2,16 @@ import numpy as np
 import pandas as pd
 
 def Cp_calc(LAMBDA=0, PHI=0):
-    path = r'Datasets/Cp_X_lambda.csv'
+    path = r'TSRxCPxPSI.csv'
     df = pd.read_csv(path)
-    dist = np.abs(df['lambda'].values - LAMBDA)
+    angles = np.arange(-5,6,1)
+    TSR = df.iloc[:,0]
+    diff1 = np.abs(TSR - LAMBDA)
+    diff2 = np.abs(angles - PHI)
+    id1 = np.argmin(diff1)
+    id2 = np.argmin(diff2)+1
 
-    return (df['cp'].values[np.argmin(dist)])
+    return df.iloc[id1,id2]
 
 class Aerodynamics:
     def __init__(self, **params):
@@ -14,17 +19,15 @@ class Aerodynamics:
         self.Area =params['Area']
         self.R =params['R']
         self.RHO =params['RHO']
-        self.PHI_opt = params['PHI_opt']
-
-    def TAU_r(self, OMEGA_r, v, PHI=None):
+        
+    def TAU_r(self, OMEGA_r, v, PHI_m):
         
         Area = self.Area
         R = self.R
         RHO = self.RHO
-        if PHI == None:
-            PHI = self.PHI_opt
         
         LAMBDA = OMEGA_r*R/v
-        C_p = Cp_calc(LAMBDA)
+        C_p = Cp_calc(LAMBDA, PHI_m)
         TAU = RHO*Area*C_p*(v**3)/(2*OMEGA_r)
+        
         return TAU
