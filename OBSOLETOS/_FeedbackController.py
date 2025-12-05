@@ -34,6 +34,8 @@ class FeedbackController:
         self.u_k = 1 # Valor inicial para u_{k-1}
         self.z_k = 1e-3         # Valor inicial para o erro integral z_k
         self.lmbd_star = self.lmbd_opt+self.u_k
+
+    
         
         
     def solve_lqr_gain(self, Q=np.diag([1, 1]), R=np.array([[1e-5]])):

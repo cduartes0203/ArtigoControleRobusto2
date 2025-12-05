@@ -29,6 +29,9 @@ r_0,1.5
 R,57.5
 RHO,1.225
 T_s,0.01
-T_desired,46.49
+Ts_RUL,10
+T_desired,1.23
+lowerVt,0.2
+upperVt,5 
 ZETA,0.6
 
